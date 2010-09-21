@@ -1,31 +1,29 @@
-
-function version_concat(mj, mi, p, s){
-	var mj = mj || 0, mi = mi || 0, p = p || 0, s = s || '';
-	return mj + '.' + mi + '.' + p + s;
-}
-
-function version_split(v){
-
-	var
-		i = parseInt,
-		x = v.split(/\.+/g),
-		ver = {major: 0, minor: 0, patch: 0, special: 0}
-	;
-
-	ver.major = i(x[0]) || 0;
-	ver.minor = i(x[1]) || 0;
-	ver.patch = x[2] || '0';
-
-	if(ver.patch && ver.patch.match(/(\d+)(\w*)/g)){
-		ver.patch = RegExp.$1;
-		ver.special = RegExp.$2;
+	function version_concat(mj, mi, p, s){
+		return (mj || 0) + '.' + (mi || 0) + '.' + (p || 0) + (s || '');
 	}
 
-	ver.patch = i(ver.patch);
+	function version_split(v){
 
-	return ver;
+		var
+			i = parseInt,
+			x = v.split(/\.+/g),
+			ver = {major: 0, minor: 0, patch: 0, special: 0}
+		;
 
-}
+		ver.major = i(x[0]) || 0;
+		ver.minor = i(x[1]) || 0;
+		ver.patch = x[2] || '0';
+
+		if(ver.patch && ver.patch.match(/(\d+)(\w*)/g)){
+			ver.patch = RegExp.$1;
+			ver.special = RegExp.$2;
+		}
+
+		ver.patch = i(ver.patch);
+
+		return ver;
+
+	}
 
 test('version_concat', function(){
 	equals(version_concat(1), '1.0.0', '1.0.0');
