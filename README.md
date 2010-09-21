@@ -6,19 +6,19 @@ A standard way for developers (be they regular, plugin or library devs) to acces
 
 ##Example
 
-Yes, it's simplified. Focus on the highlighted bits and pretend the rest is pure awesomeness.
+Yes, it's simplified. Focus on the metadata bits and pretend the rest is pure awesomeness.
 
 	var jGrouseLib = (function(G){
-<pre style="color:green;background:lightyellow;"><code>  // Metadata
-  G.type = 'library';
-  G.name = 'Grouse Library';
-  G.major_version = 1;
-  G.minor_version = 2;
-  G.patch_version = 3;
-  G.special_version = 'b4';
-  G.version = '1.2.3b4';
-  G.globals = ['jGrouseLib', 'G'];
-</code></pre>
+	  // Metadata
+	  G.type = 'library';
+	  G.name = 'Grouse Library';
+	  G.major_version = 1;
+	  G.minor_version = 2;
+	  G.patch_version = 3;
+	  G.special_version = 'b4';
+	  G.version = '1.2.3b4';
+	  G.globals = ['jGrouseLib', 'G'];
+
 	  // The rest of the library
 	  // ...
 
