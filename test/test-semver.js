@@ -5,21 +5,20 @@
 	function version_split(v){
 
 		var
-			i = parseInt,
 			x = v.split(/\.+/g),
 			ver = {major: 0, minor: 0, patch: 0, special: 0}
 		;
 
-		ver.major = i(x[0]) || 0;
-		ver.minor = i(x[1]) || 0;
-		ver.patch = x[2] || '0';
+		ver.major = ~~x[0] || 0;
+		ver.minor = ~~x[1] || 0;
+		ver.patch = x[2] || "0";
 
 		if(ver.patch && ver.patch.match(/(\d+)(\w*)/g)){
 			ver.patch = RegExp.$1;
 			ver.special = RegExp.$2;
 		}
 
-		ver.patch = i(ver.patch);
+		ver.patch = ~~ver.patch;
 
 		return ver;
 
